@@ -1,4 +1,59 @@
+:root 
+  --transition: all 0.2s ease-in-out
+  --border-size: 0.1rem
+  --border-radius: 0.8rem
+ion-icon 
+  font-size: var(--icon-size, inherit)
+  color: var(--icon-color, inherit)
+  transition: var(--transition, all 0s linear)
+  &:hover 
+    color: var(--icon-color-hover, var(--icon-color, inherit))  
+p 
+  line-height: 1.4
+  margin: 0
+  margin-bottom: 0.5rem    
 a:not(.btn)
   color: var(--color-link, #000)
+button, .btn
+  --icon-size: 1.6rem
+  margin: 0  
+  display: inline-flex 
+  align-items: center 
+  justify-content: center
+  line-height: calc(var(--button-line-height, 4rem) - 2*var(--button-border-size, 0rem))
+  border: var(--button-border-size, 0rem) solid var(--button-border-color) 
+  min-width: var(--button-line-height, 4rem)
+  padding: 0 var(--button-padding, 2rem)
+  background: var(--button-bg, var(--color-muted))
+  color: var(--button-color, var(--color-content))
+  border-radius: var(--border-radius, 0rem)
+  text-decoration: none
+  outline: none
+  transition: var(--transition, all 0s linear)
+  cursor: pointer
+  vertical-align: bottom
+  font-family: inherit
+  &:hover 
+    background: var(--button-bg-hover, var(--button-bg))
+    color: var(--button-color-hover, var(--button-color))
+    border-color: var(--button-border-color-hover, var(--button-border-color))
+  .icon  
+    display: inline-flex 
+    align-items: center 
+    justify-content: center
+  &[icon-position="left"]
+    span:not(.icon)
+      order: 2
+    .icon
+      order: 1  
+      margin-right: var(--icon-spacing, 1rem)
+  &[icon-position="right"]
+    .icon      
+      margin-left: var(--icon-spacing, 1rem)
+.btn-icon 
+  --button-padding: 0
+  height: calc(var(--button-line-height, 4rem))
+  width: calc(var(--button-line-height, 4rem))
+        
 
 

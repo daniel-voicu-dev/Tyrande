@@ -12,6 +12,7 @@
   @each $item, $itemValue in $spacingVariationBuilder 
     .#{$item}-#{$key}
       #{$itemValue}: calc(#{$value} * var(--spacing-unit, 0.5rem))
+   
   .mx-#{$key}
     margin-left: calc(#{$value} * var(--spacing-unit, 0.5rem))
     margin-right: calc(#{$value} * var(--spacing-unit, 0.5rem))
@@ -72,6 +73,37 @@
      --color-#{$key}: #{$value}    
   @each $key, $value in $availability 
      --color-#{$key}: #{$value}     
+@each $key, $value in $darkThemedButtons
+  .btn-fill--#{$key}     
+    --button-bg: var(--color-#{$key})
+    --button-bg-hover: var(--color-#{$value})
+    --button-color: var(--color-light)
+    --button-hover-color: var(--color-light)
+    ion-icon
+      --transition: all 0s linear
+  .btn-border--#{$key}     
+    --button-bg: var(--color-light)
+    --button-bg-hover: var(--color-#{$key})
+    --button-color:  var(--color-#{$key})
+    --button-color-hover: var(--color-light)
+    --button-border-size: var(--border-size, 0.1rem)
+    --button-border-color: var(--color-#{$key})    
+    --icon-color: inherit  
+    ion-icon
+      --transition: all 0s linear
+  .btn-icon--#{$key}      
+    background: transparent
+    --icon-size: 2.4rem
+    --icon-color: var(--color-#{$key})
+    --icon-color-hover: var(--color-#{$value})
+@each $color in $textColors
+  .color-#{$color}
+    color: var(--color-#{$color})
+
+
+    
+    
+   
 
 
         
