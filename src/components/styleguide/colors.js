@@ -6,7 +6,7 @@ const primaryColors = [
   {"label": "Availability", "value": [{"color": "stock-ok","text": "light"}, {"color": "stock-limited","text": "light"}, {"color": "stock-none","text": "light"}]},
   {"label": "Basic", "value": [{"color": "dark","text": "light"}, {"color": "light","text": "dark"}]},  
   {"label": "Gray Tones", "value": [{"color": "gray-one","text": "dark"}, {"color": "gray-two","text": "dark"}, {"color": "gray-three","text": "dark"}, {"color": "gray-four","text": "dark"}, {"color": "gray-five","text": "light"}, {"color": "gray-six","text": "light"}, {"color": "gray-seven","text": "light"}, {"color": "gray-eight","text": "light"}, {"color": "gray-nine","text": "light"}, {"color": "gray-ten","text": "light"}]},
-  {"label":"Inherited Colors", "value": [{"color": "content","text": "light"},{"color": "link","text": "light"},{"color": "muted","text": "dark"},{"color": "border","text": "dark"},{"color": "form-border","text": "dark"},
+  {"label":"Inherited Colors", "value": [{"color": "content","text": "light"},{"color": "link","text": "light"},{"color": "muted","text": "dark"},{"color": "border","text": "dark"},{"color": "neutral","text": "dark"}
   ]}
 ];
 
