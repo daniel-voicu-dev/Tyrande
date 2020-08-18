@@ -1,0 +1,42 @@
+@use "./../variables"
+.block
+  display: block
+.inline-block
+  display: inline-block  
+.flex
+  display: flex
+.inline-flex
+  display: inline-flex 
+  flex-wrap: wrap  
+.flex-wrap
+  display: flex
+  flex-wrap: wrap
+.grid  
+  display: grid  
+  column-gap: var(--grid-gap, 0rem)
+.hidden
+  display: none   
+@each $key, $value in variables.$breakpoints    
+  .inline-block-#{$key}
+    @media (min-width: #{$value})
+      display: inline-block
+  .block-#{$key}
+    @media (min-width: #{$value})
+      display: block
+  .flex-#{$key}
+    @media (min-width: #{$value})
+      display: flex
+  .inline-flex-#{$key}
+    @media (min-width: #{$value})
+      display: inline-flex
+  .flex-wrap-#{$key}
+    @media (min-width: #{$value})
+      display: flex
+      flex-wrap: wrap
+  .grid-#{$key}
+    @media(min-width: #{$value})
+      display: grid
+      column-gap: var(--grid-gap, 0rem)
+  .hidden-#{$key}
+    @media (min-width: #{$value})
+      display: none

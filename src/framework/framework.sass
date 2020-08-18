@@ -1,112 +1,142 @@
 @import "./variables.sass"
-
+@import "./mixins.sass"
 //GENERATORS
 
-//headings
-@each $name, $glyph in $headings
-  .#{$name}
-     font-size: $glyph
-      
-//spacings default values: [1,2,4,6] => 0.5rem/1rem/2rem/3rem
-@each $key, $value in $spacings 
-  @each $item, $itemValue in $spacingVariationBuilder 
-    .#{$item}-#{$key}
-      #{$itemValue}: calc(#{$value} * var(--spacing-unit, 0.5rem))
    
-  .mx-#{$key}
-    margin-left: calc(#{$value} * var(--spacing-unit, 0.5rem))
-    margin-right: calc(#{$value} * var(--spacing-unit, 0.5rem))
-  .my-#{$key}
-    margin-top: calc(#{$value} * var(--spacing-unit, 0.5rem))
-    margin-bottom: calc(#{$value} * var(--spacing-unit, 0.5rem))
-  .px-#{$key}
-    padding-left: calc(#{$value} * var(--spacing-unit, 0.5rem))
-    padding-right: calc(#{$value} * var(--spacing-unit, 0.5rem))
-  .py-#{$key}
-    padding-top: calc(#{$value} * var(--spacing-unit, 0.5rem))
-    padding-bottom: calc(#{$value} * var(--spacing-unit, 0.5rem))  
-.mx-auto 
-  margin-left: auto
-  margin-right: auto
-.mr-auto 
-  margin-right: auto
-.ml-auto 
-  margin-left: auto
-
-//grid
-.grid
-  --grid-cols: #{$grid-columns}
-  display: grid  
-  grid-template-columns: repeat(var(--grid-cols), 1fr) 
-@for $i from 1 through $grid-columns
-  @each $key, $value in $breakpoints
-    .grid-#{$key}-#{$i}
-      display: grid
-      grid-gap: var(--grid-gap, 0rem)
-      grid-template-columns: repeat(var(--grid-cols), 1fr)     
-      @media(min-width: #{$value})
-        --grid-cols: #{$i}
-      @each $key, $value in $breakpoints
-  .grid-#{$i}
-    display: grid
-    grid-gap: var(--grid-gap, 0rem)
-    grid-template-columns: repeat(var(--grid-cols), 1fr)
-    --grid-cols: #{$i}    
-
-//colors
-:root   
-  @each $key, $value in $primary     
+//colors    
+\:root
+  @each $key, $value in $primary
     --color-#{$key}: #{$value}
-  @each $key, $value in $secondary     
-    --color-#{$key}: #{$value}  
+  @each $key, $value in $secondary
+    --color-#{$key}: #{$value}
   @each $key, $value in $buy
-    --color-#{$key}: #{$value}   
-  @each $key, $value in $lightgrays 
+    --color-#{$key}: #{$value}
+  @each $key, $value in $lightgrays
     --color-gray-#{$key}: #{$value}
-  @each $key, $value in $darkgrays 
-    --color-gray-#{$key}: #{$value}  
+  @each $key, $value in $darkgrays
+    --color-gray-#{$key}: #{$value}
   @each $key, $value in $alert
-    --color-#{$key}: #{$value}  
-  @each $key, $value in $basic   
-     --color-#{$key}: #{$value} 
-  @each $key, $value in $inheritedColors 
-     --color-#{$key}: #{$value}  
-  @each $key, $value in $availability 
-     --color-#{$key}: #{$value}     
-@each $key, $value in $darkThemedButtons
-  .btn-fill--#{$key}     
-    --button-bg: var(--color-#{$key})
-    --button-bg-hover: var(--color-#{$value})
-    --button-color: var(--color-light)
-    --button-hover-color: var(--color-light)
-    ion-icon
-      --transition: all 0s linear
-  .btn-border--#{$key}     
-    --button-bg: var(--color-light)
-    --button-bg-hover: var(--color-#{$key})
-    --button-color:  var(--color-#{$key})
-    --button-color-hover: var(--color-light)
-    --button-border-size: var(--border-size, 0.1rem)
-    --button-border-color: var(--color-#{$key})    
-    --icon-color: inherit  
-    ion-icon
-      --transition: all 0s linear
-  .btn-icon--#{$key}      
-    background: transparent
-    --icon-size: 2.4rem
-    --icon-color: var(--color-#{$key})
-    --icon-color-hover: var(--color-#{$value})
+    --color-#{$key}: #{$value}
+  @each $key, $value in $basic
+    --color-#{$key}: #{$value}
+  @each $key, $value in $inheritedColors
+    --color-#{$key}: #{$value} 
+  @each $key, $value in $availability
+    --color-#{$key}: #{$value}
+
+
+.icon-small 
+  --icon-size: 1.2rem
+.icon-default
+  --icon-size: 1.4rem
+.icon-medium
+  --icon-size: 1.6rem
+.icon-large 
+  --icon-size: 2.8rem
+.icon-xlarge
+  --icon-size: 3.2rem  
+
+
+
+@for $i from -1 through 6
+  .order-#{$i}
+    order: #{$i}
+@each $key, $value in $breakpoints
+  @for $i from 0 through 6
+    .order-#{$key}-#{$i}
+      @media (min-width: #{$value})
+        order: #{$i}
+  .order-#{$key}-unset
+    @media (min-width: #{$value})
+      order: unset
+
+  
+  .space-between-#{$key}
+    @media (min-width: #{$value})      
+      justify-content: space-between
+
 @each $color in $textColors
   .color-#{$color}
     color: var(--color-#{$color})
+    --link-color: var(--color-#{$color})
+    --icon-color: var(--color-#{$color})
+  .border-#{$color}
+    border-color: var(--color-#{$color})
+  .bg-#{$color}
+    background: var(--color-#{$color})
+@each $key, $value in $primary
+  .color-#{$key}
+    color: var(--color-#{$key})
+    --link-color: var(--color-#{$key})
+    --icon-color: var(--color-#{$key})
+  .border-#{$key}
+    border-color: var(--color-#{$key})  
+  .bg-#{$key}
+    background: var(--color-#{$key})
+@each $key, $value in $secondary
+  .color-#{$key}
+    color: var(--color-#{$key})
+    --link-color: var(--color-#{$key})
+    --icon-color: var(--color-#{$key})
+  .border-#{$key}
+    border-color: var(--color-#{$key})
+  .bg-#{$key}
+    background: var(--color-#{$key})
+@each $key, $value in $buy
+  .color-#{$key}
+    color: var(--color-#{$key})
+    --link-color: var(--color-#{$key})
+    --icon-color: var(--color-#{$key})
+  .border-#{$key}
+    border-color: var(--color-#{$key})
+  .bg-#{$key}
+    background: var(--color-#{$key})
+@each $key, $value in $alert
+  .color-#{$key}
+    color: var(--color-#{$key})
+    --link-color: var(--color-#{$key})
+    --icon-color: var(--color-#{$key})
+  .border-#{$key}
+    border-color: var(--color-#{$key}) 
+  .bg-#{$key}
+    background: var(--color-#{$key})
+@each $key, $value in $availability
+  .color-#{$key}
+    color: var(--color-#{$key})
+    --link-color: var(--color-#{$key})
+    --icon-color: var(--color-#{$key})
+  .border-#{$key}
+    border-color: var(--color-#{$key})  
+  .bg-#{$key}
+    background: var(--color-#{$key})
+.block-container
+  padding: 0 var(--grid-gap)
+  --container: calc(100vw - var(--scrollbar-width, 4rem))
+  +breakpoint(md)
+    --container: calc(1024px - var(--scrollbar-width, 4rem))
+  +breakpoint(lg)
+    --container: calc(1280px - var(--scrollbar-width, 4rem))
+  +breakpoint(xl)
+    --container: calc(1440px - var(--scrollbar-width, 4rem))
+  +breakpoint(xxl)
+    --container: calc(1920px - var(--scrollbar-width, 4rem))
+.container 
+  --container: calc(100vw - var(--scrollbar-width, 4rem))
+  +breakpoint(md)
+    --container: calc(1024px - var(--scrollbar-width, 4rem))
+  +breakpoint(lg)
+    --container: calc(1280px - var(--scrollbar-width, 4rem))
+  +breakpoint(xl)
+    --container: calc(1440px - var(--scrollbar-width, 4rem))
+  +breakpoint(xxl)
+    --container: calc(1920px - var(--scrollbar-width, 4rem))
+  &--wide
+    --container: calc(100vw - var(--scrollbar-width, 4rem))
+    .section__content 
+      padding-left: 0
+      padding-right: 0
 
 
-    
-    
-   
 
-
-        
-
-    
+  
    
