@@ -81,4 +81,33 @@
                 #{$itemValue}: 0
       .#{$item}-#{$key2}-#{$key}
         @media (min-width: #{$value2})
-          #{$itemValue}: calc(#{$value} * var(--spacing-unit, 0.5rem))          
+          #{$itemValue}: calc(#{$value} * var(--spacing-unit, 0.5rem))    
+.border
+  border: 1px solid var(--color-border)          
+.border-top 
+  border-top: var(--border-size, 0.1rem) solid var(--color-border)
+.border-bottom
+  border-bottom: var(--border-size, 0.1rem) solid var(--color-border)
+.border-left
+  border-left: var(--border-size, 0.1rem) solid var(--color-border)
+.border-right
+  border-right: var(--border-size, 0.1rem) solid var(--color-border)  
+.border-pill 
+  border-radius: 1.6rem !important
+.border-circle
+  border-radius: 100% !important  
+@for $i from 1 through 5
+  .border-#{$i}    
+    border-width: #{"0."}#{$i}rem !important    
+.border-top-0 
+  border-top: none !important
+.border-bottom-0
+  border-bottom: none !important
+.border-left-0
+  border-left: none !important
+.border-right-0
+  border-right: none !important
+.border-0
+  border: none !important
+
+  

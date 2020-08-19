@@ -1,19 +1,12 @@
-@import "./framework"  
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap')
-html
-  font-size: 10px
+@use "./sass/framework/mixins"
+@use "./sass"  
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&family=Roboto+Condensed:wght@300;400;700&family=Roboto+Mono:wght@500&display=swap')
+html 
   --border-radius: 0.6rem
-body
-  margin: 0
-  padding: 0 
-  font-size: 1.4rem
+  --grid-gap: 1rem
+body 
   background-color: #fcfcfc
-  //background-color: var(--color-accent,  #6200ee)
-  // color: #fff
-  font-family: "Roboto", sans-serif
-  font-weight: 400
-*
-  box-sizing: border-box  
+ 
 .ui-color
   height: 4.4rem
   // min-width: 25rem    
@@ -29,16 +22,17 @@ body
     font-weight: 500
 .ui-wrapper 
   display: grid   
-  grid-template-columns: minmax(30rem, auto) 1fr  
-  > aside
-    height: 100vh
-    overflow-y: auto
-    background-color: var(--gray-one)
-    top: 0
-    bottom: 0 
-  > main 
-    height: 100vh
-    overflow-y: auto  
+  +mixins.breakpoint(lg)
+    grid-template-columns: minmax(30rem, auto) 1fr  
+    > aside
+      height: 100vh
+      overflow-y: auto
+      background-color: var(--gray-one)
+      top: 0
+      bottom: 0 
+    > main 
+      height: 100vh
+      overflow-y: auto  
 // .ui-lead  
 // .ui-heading  
 .ui-colors 
@@ -51,12 +45,17 @@ body
 .d-block
   display: block
 .ui-component
-  margin-bottom: 2rem  
-button 
-  font-weight: 500   
+  margin-bottom: 2rem    
 .ui-block-code 
   background: #2c2c2c
-  color: #fff
+  color: #6eca50
   border: 2px solid #767676
   border-radius: 2rem
-  font-size: 1rem
+  font-size: 1.2rem  
+  pre 
+    font-family: "Roboto Mono", monospace
+ion-icon 
+  font-size: var(--icon-size)  
+.ui-box
+  width: 15rem
+  height: 15rem  

@@ -14,7 +14,7 @@ const primaryColors = [
 const ColorTheme = () => {
   return `
     <div class="ui-colors ui-component">
-      <h2 class="ui-lead py-2 h2 border-bottom border-2">Theme Colors</h2>
+      <h2 class="ui-lead py-2 h2 border-bottom border-2">Colors</h2>
       <div class="list grid-md-3">      
         ${primaryColors.map(({label,value})=> {
           return `<div class="item">

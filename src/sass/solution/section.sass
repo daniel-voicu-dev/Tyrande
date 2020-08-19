@@ -1,0 +1,32 @@
+@use "./../framework/mixins"
+.block-container
+  max-width: var(--container)
+  margin: 0 auto
+  padding: 0 var(--grid-gap)
+  --container: calc(100vw - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(md)
+    --container: calc(1024px - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(lg)
+    --container: calc(1280px - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(xl)
+    --container: calc(1440px - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(xxl)
+    --container: calc(1920px - var(--scrollbar-width, 4rem))
+  &--narrow
+    max-width: clamp(30rem,130rem, 100vw)
+    margin: 0 auto  
+.container 
+  --container: calc(100vw - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(md)
+    --container: calc(1024px - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(lg)
+    --container: calc(1280px - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(xl)
+    --container: calc(1440px - var(--scrollbar-width, 4rem))
+  +mixins.breakpoint(xxl)
+    --container: calc(1920px - var(--scrollbar-width, 4rem))
+  &--wide
+    --container: calc(100vw - var(--scrollbar-width, 4rem))
+    .section__content 
+      padding-left: 0
+      padding-right: 0

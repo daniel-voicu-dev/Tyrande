@@ -40,3 +40,36 @@
   .hidden-#{$key}
     @media (min-width: #{$value})
       display: none
+.overflow-hidden 
+  overflow: hidden 
+.overflow-visible 
+  overflow: visible 
+.overflow-x-hidden
+  overflow-x: hidden 
+.overflow-x-auto
+  overflow-x: auto 
+.overflow-y-hidden 
+  overflow-y: hidden 
+.overflow-y-auto 
+  overflow-y: auto   
+@for $i from 1 through 10
+  .z-#{$i}
+    z-index: #{$i}     
+
+@for $i from -1 through 6
+  .order-#{$i}
+    order: #{$i}
+@each $key, $value in variables.$breakpoints
+  @for $i from 0 through 6
+    .order-#{$key}-#{$i}
+      @media (min-width: #{$value})
+        order: #{$i}
+  .order-#{$key}-unset
+    @media (min-width: #{$value})
+      order: unset  
+.opacity-0
+  opacity: 0
+.opacity-1
+  opacity: 1
+
+        
