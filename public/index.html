@@ -6,23 +6,34 @@
   <title>UI Framework</title>
 </head>
 <body>
-    <div class="ui-wrapper">    
-    <aside class="px-3">
-      <header><h1 class="">UI Elements</h1></header>
-      <nav class="ui-nav">
-        <a href="ui-colors" class="py-1 d-block">Colors</a>
-        <a href="ui-buttons" class="py-1 d-block">Buttons</a>
-        <a href="ui-typography" class="py-1 d-block">Typography</a>
-        <a href="ui-layout" class="py-1 d-block">Layout</a>
-        <a href="ui-utilities" class="py-1 d-block">Utilities</a>
-      </nav>
+    <div class="ui-wrapper grid-xs-4">    
+    <aside class="p-3 overflow-y-auto col-xs-1 bg-neutral-light">
+      <section>
+        <header><h2 class="h4">UI Elements</h2></header>
+        <nav class="ui-nav">
+          <a href="ui-colors" class="py-1 d-block">Colors</a>
+          <a href="ui-buttons" class="py-1 d-block">Buttons</a>
+          <a href="ui-typography" class="py-1 d-block">Typography</a>
+          <a href="ui-layout" class="py-1 d-block">Layout</a>
+          <a href="ui-utilities" class="py-1 d-block">Utilities</a>
+        </nav>
+      </section>
+      <section>
+        <header><h2 class="h4">eCommerce Elements</h2></header>
+        <nav class="ui-nav">
+          <a href="ui-section" class="py-1 d-block">Section</a>
+          <a href="ui-cards" class="py-1 d-block">Cards</a>
+          <a href="ui-plp" class="py-1 d-block">Product List Elements</a>          
+        </nav>
+      </section>
     </aside>
-    <main class="px-3">
+    <main class="px-3 overflow-y-auto col-xs-3">
       <div id="ui-colors"></div>
       <div id="ui-buttons"></div>
       <div id="ui-typography"></div>
       <div id="ui-layout"></div>
       <div id="ui-utilities"></div>
+      <div id="ui-section"></div>
     </main>
   </div>
     <script src="./../src/app.js"></script>
