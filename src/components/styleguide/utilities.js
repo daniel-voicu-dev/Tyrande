@@ -33,7 +33,7 @@ const UtilitiesTheme = () => `
           <p><strong>order-</strong><span class="color-accent">{breakpoint}-</span>[-1..10], <strong>order-</strong><span class="color-accent">{breakpoint}-</span><strong>unset</strong></p> 
           <p><strong>overflow-</strong>-[hidden/visible/-x-auto/-x-hidden/-y-auto/-y-hidden]</p> 
           <p><strong>z-unset</strong>, <strong>z-</strong>[0..10]</p> 
-          <p class="mb-0"><strong>opacity-</strong>[0/0.1/0.2..1]</p>   
+          <p class="mb-0"><strong>opacity-</strong>[0/1]</p>   
         </div>        
       </div>
       <div class="item">
@@ -50,10 +50,10 @@ const UtilitiesTheme = () => `
       <div class="item">
         <h3 class="ui-heading h4 my-2">Text Utilities</h3>
         <div class="p-2 border my-2">
-          <p class="color-muted"><strong class="color-dark">[h1/h2/h3/h4/h5/h6]</strong></p> 
-          <p class="color-muted"><strong class="color-dark">text</strong>-left/center/right/decoration-none/uppercase/transform-none</p> 
-          <p class="color-muted"><strong class="color-dark">weight</strong>-superthin/thin/normal/bold/superbold</p>
-          <p class="color-muted"><strong class="color-dark">font</strong>-regular/condensed/heading </p>
+          <p><strong class="color-dark">[h1/h2/h3/h4/h5/h6]</strong></p> 
+          <p><strong class="color-dark">text</strong>-[left/center/right/decoration-none/uppercase/transform-none]</p> 
+          <p><strong class="color-dark">weight</strong>-[superthin/thin/normal/bold/superbold]</p>
+          <p><strong class="color-dark">font</strong>-[regular/condensed/heading] </p>
           <p><strong>line-through</strong>, <strong>letter-spacing</strong>, <strong>link</strong>, <strong>small</strong>, <strong>line-height-inline</strong></p>
         </div>
         <h2 class="h3 weight-thin line-height-inline">Sed dapibus enim ut ante scelerisque cursus</h2>
