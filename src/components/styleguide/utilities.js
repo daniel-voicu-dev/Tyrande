@@ -50,6 +50,7 @@ const UtilitiesTheme = () => `
       <div class="item">
         <h3 class="ui-heading h4 my-2">Text Utilities</h3>
         <div class="p-2 border my-2">
+          <p class="color-muted"><strong class="color-dark">[h1/h2/h3/h4/h5/h6]</strong></p> 
           <p class="color-muted"><strong class="color-dark">text</strong>-left/center/right/decoration-none/uppercase/transform-none</p> 
           <p class="color-muted"><strong class="color-dark">weight</strong>-superthin/thin/normal/bold/superbold</p>
           <p class="color-muted"><strong class="color-dark">font</strong>-regular/condensed/heading </p>
