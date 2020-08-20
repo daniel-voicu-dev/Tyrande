@@ -18,17 +18,18 @@
   justify-content: space-around
 .place-items-center
   place-items: center
-.align-self-end
+.align-self-bottom
   align-self: flex-end
-.align-self-start
+.align-self-top
   align-self: flex-start
 .align-self-center
   align-self: center
 
+//TODO: moved to extentions 
 @each $key, $value in variables.$breakpoints  
   .space-between-#{$key}
     @media (min-width: #{$value})      
-      justify-content: space-between
+      justify-content: space-between  
 
 .relative 
   position: relative

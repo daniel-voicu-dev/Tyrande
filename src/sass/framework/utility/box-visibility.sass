@@ -52,24 +52,26 @@
   overflow-y: hidden 
 .overflow-y-auto 
   overflow-y: auto   
-@for $i from 1 through 10
+.z-unset 
+  z-index: unset 
+@for $i from 0 through 10
   .z-#{$i}
     z-index: #{$i}     
 
-@for $i from -1 through 6
+@for $i from -1 through 10
   .order-#{$i}
     order: #{$i}
 @each $key, $value in variables.$breakpoints
-  @for $i from 0 through 6
+  @for $i from -1 through 10
     .order-#{$key}-#{$i}
       @media (min-width: #{$value})
         order: #{$i}
   .order-#{$key}-unset
     @media (min-width: #{$value})
       order: unset  
-.opacity-0
-  opacity: 0
-.opacity-1
-  opacity: 1
+@for $i from 0 through 10      
+  .opacity-#{$i}
+    opacity: $i/10
+
 
         
