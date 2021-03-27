@@ -1,8 +1,38 @@
 \:root
+  //--form-line-height:
   --form-border-size: 0.1rem
   --form-border-color: var(--color-border)
-  --form-font-stack: 400 1.4rem "Open Sans", sans-serif
+  --font-stack-form: 400 1.4rem var(--font-family-main)
   --form-placeholder-color: var(--color-muted)
   --form-padding: 1rem
   --form-border-radius: 0rem
   --form-spacing: 1rem //tobedeleated
+textarea
+  display: flex
+  outline: none
+  font: var(--font-stack-form, var(--font-stack-main))
+  max-width: 100%
+  width: 100%
+  padding: 0
+//padding: var(--form-padding)
+input
+  width: 100%
+  border: none
+  outline: none
+  margin: 0
+  font: var(--font-stack-form, var(--font-stack-main))
+  padding: 0 var(--form-padding)
+  position: relative
+  background-color: transparent
+  color: inherit
+  &[type="checkbox"],&[type="color"]
+    min-width: 0
+    padding: 0
+    display: inline-flex
+    align-items: center
+    text-align: center
+    vertical-align: middle
+    width: 2rem
+address
+  font-style: normal
+  line-height: 1.4

@@ -1,10 +1,8 @@
 @use "./sass/framework/mixins"
 @use "./sass"  
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700;800&family=Roboto+Condensed:wght@300;400;700&family=Roboto+Mono:wght@500&display=swap')
 \:root 
   --border-radius: 0.6rem
   --grid-gap: 1rem
-  --font-family-headings: "Roboto Condensed",sans-serif
 body 
   background-color: #fcfcfc
  
@@ -18,9 +16,9 @@ body
   color: var(--text, #fff)
   justify-content: space-between
   padding: 0 1rem
-  font-weight: 600
+  font-weight: 400
   small 
-    font-weight: 500
+    font-weight: 400
 .ui-wrapper 
   display: grid   
   +mixins.breakpoint(lg)   

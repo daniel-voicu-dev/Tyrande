@@ -1,15 +1,18 @@
-@use "./../variables"
+@use "./../variables" as *
 @use "sass:map"
+@use "sass:color"
+@use "sass:math" as *
+@use "../abstracts/functions" as *
 
-$grays: map.merge(variables.$lightgrays, variables.$darkgrays)
-$colors1: map.merge(variables.$themeColors, variables.$alert)
-$colors2: map.merge($colors1, variables.$basic)
-$colors3: map.merge($colors2, variables.$inheritedColors)
-$colors4: map.merge($colors3, variables.$availability)
-$colors5: map.merge($colors4, $grays)
+$utilityColors: map-collect($derivedColors,$availability,$alert)
 
-\:root
-  @each $key, $value in $colors5
+\:root 
+  @each $color, $value in $mainColors
+    --color-#{$color}: #{$value}    
+    --color-#{$color}-lighter: #{color.adjust($value,$saturation: +20%,$lightness: +10%)}
+    --color-#{$color}-darker: #{color.adjust($value,$saturation: +10%,$lightness: -10%)}
+  @for $i from 1 through 10
+    --color-gray-#{$i}: #{color.adjust(hsl(200,10%,0%), $lightness: percentage(1-$i/20))}  
+  @each $key, $value in $utilityColors
     --color-#{$key}: #{$value}  
-
 

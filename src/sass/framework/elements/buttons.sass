@@ -1,7 +1,5 @@
-@use "./../variables"
+@use "./../variables" as *
 
-\:root  
-  --button-font-family: "Roboto Condensed", sans-serif
 button, .btn
   user-select: none
   --icon-size: 1.6rem
@@ -21,7 +19,7 @@ button, .btn
   transition: var(--transition, all 0s linear)
   cursor: pointer
   vertical-align: bottom  
-  font-family: var(--button-font-family, sans-serif) 
+  font-family: var(--font-family-button, var(--font-family-main)) 
   &:hover
     background: var(--button-bg-hover, var(--button-bg))
     color: var(--button-color-hover, var(--button-color))
@@ -57,58 +55,37 @@ button, .btn
   --button-bg-hover: transparent
   --button-padding: 0rem
   min-width: unset
+.btn-inline
+  min-width: 1px
+  width: auto  
 
 //button creation  
-@each $key, $value in variables.$darkThemedButtons
-  .btn-fill--#{$key}
-    --button-bg: var(--color-#{$key})
-    --button-bg-hover: var(--color-#{$value})
-    --button-color: var(--color-light)
-    --button-color-hover: var(--color-light)
-    --icon-color: var(--color-light)
-    .ico
-      --transition: all 0s linear
-  .btn-border--#{$key}
-    --button-bg: transparent
-    --button-bg-hover: var(--color-#{$key})
-    --button-color:  var(--color-#{$key})
-    --button-color-hover: var(--color-light)
-    --button-border-size: var(--border-size, 0.1rem)
-    --button-border-color: var(--color-#{$key})
-    --icon-color: var(--color-#{$key})
-    .ico
-      --transition: all 0s linear
-  .btn-icon--#{$key}   
-    --button-color: var(--color-#{$key})
-    --button-color-hover: var(--color-#{$value})
-    --icon-size: 2.8rem
-    // --icon-color: var(--color-#{$key})
-    // --icon-color-hover: var(--color-#{$value})
-
-@each $key, $value in variables.$lightThemedButtons
-  .btn-fill--#{$key}
-    --button-bg: var(--color-#{$key})
-    --button-bg-hover: var(--color-#{$value})
-    --button-color: var(--color-dark)
-    --button-color-hover: var(--color-light)
-    --icon-color: var(--color-dark)
-    .ico
-      --transition: all 0s linear
-  .btn-border--#{$key}
-    --button-bg: transparent
-    --button-bg-hover: var(--color-dark)
-    --button-color:  var(--color-#{$key})
-    --button-color-hover: var(--color-light)
-    --button-border-size: var(--border-size, 0.1rem)
-    --button-border-color: var(--color-#{$key})    
-    --icon-color: var(--color-#{$key})
-    .ico
-      --transition: all 0s linear
-  .btn-icon--#{$key}    
-    --button-color: var(--color-#{$key})
-    --button-color-hover: var(--color-#{$value})
-    --icon-size: 2.8rem
-    // --icon-color: var(--color-#{$key})
-    // --icon-color-hover: var(--color-#{$value})
-
-  
+@each $prop, $value in $buttons
+  @each $color, $hover in $value
+    $textColor: "light"
+    @if $prop == "light"
+      $textColor: "dark"   
+    .btn-fill--#{$color}
+      --button-bg: var(--color-#{$color})
+      --button-bg-hover: var(--color-#{$hover})    
+      --button-color: var(--color-#{$textColor})
+      --button-color-hover: var(--color-light)
+      --icon-color: var(--color-#{$textColor})
+      .ico
+        --transition: all 0s linear
+    .btn-border--#{$color}
+      --button-bg: transparent      
+      --button-bg-hover: var(--color-#{$color})
+      --button-color:  var(--color-#{$color})
+      @if $color != "light"
+        --button-color-hover: var(--color-light)
+      @else
+        --button-color-hover: var(--color-dark)
+      --button-border-size: var(--border-size, 0.1rem)
+      --button-border-color: var(--color-#{$color})
+      --icon-color: var(--color-#{$color})
+      .ico
+        --transition: all 0s linear
+    .btn-icon--#{$color}
+      --button-color: var(--color-#{$color})
+      --button-color-hover: var(--color-#{$hover})

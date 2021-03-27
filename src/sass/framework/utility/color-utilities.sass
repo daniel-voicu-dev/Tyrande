@@ -1,11 +1,37 @@
-@use "./../variables"
+@use "./../variables" as *
+@use "sass:map"
+@use "sass:color"
+@use "sass:math" as *
+@use "../abstracts/functions" as *
 
-@each $color in variables.$textColors
-  .color-#{$color}
-    color: var(--color-#{$color})
-    --link-color: var(--color-#{$color})
-    --icon-color: var(--color-#{$color})
-  .border-#{$color}
-    border-color: var(--color-#{$color}) !important
-  .bg-#{$color}
-    background: var(--color-#{$color})
+$utilityColors: map-collect($mainColors,$derivedColors,$availability,$alert)
+
+@each $color, $value in $utilityColors
+  @if $color != "dark" and $color != "light"
+    .color-#{$color}
+      color: $value
+      --link-color: $value
+      --icon-color: $value   
+    .border-#{$color}
+      border-color: $value !important
+    .bg-#{$color}
+      background: $value
+    //.color-hover-#{$color}
+    //  &:hover
+    //    color: $value !important
+    //    --link-color: $value !important
+    //    --icon-color: $value !important   
+    //.bg-hover-#{$color}
+    //  &:hover
+    //    background: $value !important  
+    
+  @else
+    .color-#{$color}
+      color: var(--color-#{$color})
+      --link-color: var(--color-#{$color})
+      --icon-color: var(--color-#{$color})
+    .border-#{$color}
+      border-color: var(--color-#{$color}) !important
+    .bg-#{$color}
+      background: var(--color-#{$color})
+      

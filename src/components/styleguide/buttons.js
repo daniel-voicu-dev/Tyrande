@@ -55,7 +55,7 @@ const ButtonsTheme = () => {
         return `<div class="item overflow-x-hidden">
         ${label !== "" ? `<h3 class="ui-heading h4 my-2">${label}</h3>` : ``} 
         <p class="color-muted">Variations: | ${value.map(v=>{return v.charAt(0) + v.slice(1)}).join(", ")}</p>
-        <button class="btn-icon--${value[0]} btn-icon" data-role="theme-button" data-list="${value.join(",")}"><ion-icon name="cloud"></ion-icon></button>
+        <button class="btn-icon--${value[0]} btn-icon" style="--icon-size: 3.2rem;" data-role="theme-button" data-list="${value.join(",")}"><ion-icon name="cloud"></ion-icon></button>
         </div>
         `
       }).join("")}   

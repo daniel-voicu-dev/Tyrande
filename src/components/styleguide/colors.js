@@ -5,7 +5,7 @@ const primaryColors = [
   {"label": "Alert/Notification", "value":[{"color": "alert","text": "light"},{"color": "information","text": "light"}, {"color": "error","text": "light"},{"color": "warning","text": "light"},{"color": "success","text": "light"}]},
   {"label": "Availability", "value": [{"color": "stock-ok","text": "light"}, {"color": "stock-limited","text": "light"}, {"color": "stock-none","text": "light"}]},
   {"label": "Basic", "value": [{"color": "dark","text": "light"}, {"color": "light","text": "dark"}]},  
-  {"label": "Gray Tones", "value": [{"color": "gray-1","text": "dark"}, {"color": "gray-2","text": "dark"}, {"color": "gray-3","text": "dark"}, {"color": "gray-4","text": "dark"}, {"color": "gray-5","text": "light"}, {"color": "gray-6","text": "light"}, {"color": "gray-7","text": "light"}, {"color": "gray-8","text": "light"}, {"color": "gray-9","text": "light"}, {"color": "gray-10","text": "light"}]},
+  {"label": "Gray Tones(DEV)", "value": [{"color": "gray-1","text": "dark"}, {"color": "gray-2","text": "dark"}, {"color": "gray-3","text": "dark"}, {"color": "gray-4","text": "dark"}, {"color": "gray-5","text": "dark"}, {"color": "gray-6","text": "dark"}, {"color": "gray-7","text": "dark"}, {"color": "gray-8","text": "dark"}, {"color": "gray-9","text": "dark"}, {"color": "gray-10","text": "dark"}]},
   {"label":"Inherited Colors", "value": [{"color": "content","text": "light"},{"color": "link","text": "light"},{"color": "muted","text": "dark"},{"color": "border","text": "dark"},{"color": "neutral","text": "dark"}, {"color": "neutral-light","text": "dark"}
   ]}
 ];
