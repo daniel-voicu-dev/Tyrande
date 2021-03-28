@@ -13,21 +13,16 @@
 .h-unset
   height: unset
 @each $key, $value in variables.$breakpoints
-  .w-#{$key}-100
-     @media (min-width: #{$value})
-        width: 100%
-  .w-#{$key}-auto
-     @media (min-width: #{$value})
-        width: auto
-  .w-#{$key}-unset
-     @media (min-width: #{$value})
-        width: unset
-  .h-#{$key}-100
-     @media (min-width: #{$value})
-        height: 100%
-  .h-#{$key}-auto
-     @media (min-width: #{$value})
-        height: auto
-  .h-#{$key}-unset
-     @media (min-width: #{$value})
-        height: unset
+  @media (min-width: #{$value})
+  .w-#{$key}-100     
+    width: 100%
+  .w-#{$key}-auto    
+    width: auto
+  .w-#{$key}-unset    
+    width: unset
+  .h-#{$key}-100    
+    height: 100%
+  .h-#{$key}-auto    
+    height: auto
+  .h-#{$key}-unset    
+    height: unset
