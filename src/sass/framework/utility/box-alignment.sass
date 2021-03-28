@@ -1,21 +1,20 @@
-@use "./../variables"
-  
-.justify-content-start
-  justify-content: flex-start  
-.justify-content-center
-  justify-content: center
-.justify-content-end
-  justify-content: flex-end  
-.align-items-top
-  align-items: flex-start  
-.align-items-center
-  align-items: center
-.align-items-bottom
-  align-items: flex-end  
+@use "./../variables" as * 
+
+$propJustify: (start: "flex-start", center: "center", end: "flex-end", stretch: "stretch")
+$propAlign: (top: "flex-start", center: "center", bottom: "flex-end", stretch: "stretch")
+$props: ("align": $propAlign, "justify": $propJustify)
+@each $prop,$value in $props
+  @each $key,$value in $value
+    .#{$prop}-items-#{$key}
+      #{$prop}-items: #{$value}
+    .#{$prop}-content-#{$key}
+      #{$prop}-content: #{$value}
 .space-between  
   justify-content: space-between
 .space-around  
   justify-content: space-around
+.space-evenly
+  justify-content: space-evenly
 .place-items-center
   place-items: center
 .align-self-bottom
@@ -25,32 +24,23 @@
 .align-self-center
   align-self: center
 
-//TODO: moved to extentions 
-@each $key, $value in variables.$breakpoints  
-  .space-between-#{$key}
-    @media (min-width: #{$value})      
-      justify-content: space-between  
-
 .relative 
   position: relative
 .fixed 
   position: fixed 
 .sticky 
   position: sticky
+@each $prop,$value in $positions 
+  .sticky-#{$value}
+    position: sticky
+    #{$value}: 0
 .absolute 
   position: absolute
 
-@each $key, $value in variables.$spacings
-  @each $item, $itemValue in variables.$positions
+@each $key, $value in $spacings
+  @each $item, $itemValue in $positions
     .#{$item}-#{$key}
-        #{$itemValue}: calc(#{$value} * var(--spacing-unit, 0.5rem))
-
-@each $key2, $value2 in variables.$breakpoints
-  @each $key, $value in variables.$spacings
-    @each $item, $itemValue in variables.$positions   
-      .#{$item}-#{$key2}-#{$key}
-        @media (min-width: #{$value2})
-          #{$itemValue}: calc(#{$value} * var(--spacing-unit, 0.5rem))     
+        #{$itemValue}: calc(#{$value} * var(--spacing-unit, 0.5rem))   
 
 .grid-1-auto
   display: grid
@@ -69,7 +59,7 @@
   column-gap: var(--grid-gap, 0rem)
   grid-template-columns: auto 1fr auto 
 
-@each $key, $value in variables.$breakpoints             
+@each $key, $value in $breakpoints             
   .grid-1-auto-#{$key}
     @media (min-width: #{$value})
       display: grid
