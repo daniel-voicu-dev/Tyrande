@@ -46,8 +46,11 @@
 @each $prop, $value in $boxModel
   @each $prop2, $value2 in $positions
     @each $spacing, $spacingValue in $spacings
+      .#{$prop}-#{$spacing}
+        #{$value}-#{$value2}: calc(#{$spacingValue} * var(--spacing-unit, 0.5rem))
       .#{$prop}#{$prop2}-#{$spacing}
         #{$value}-#{$value2}: calc(#{$spacingValue} * var(--spacing-unit, 0.5rem))
+        
 
 
 @each $breakpoint, $breakpointValue in $breakpoints
@@ -87,6 +90,8 @@
       @each $prop, $value in $boxModel
         @each $prop2, $value2 in $positions
           @each $spacing, $spacingValue in $spacings
+            .#{$prop}-#{$breakpoint}-#{$spacing}
+              #{$value}-#{$value2}: calc(#{$spacingValue} * var(--spacing-unit, 0.5rem))
             .#{$prop}#{$prop2}-#{$breakpoint}-#{$spacing}
               #{$value}-#{$value2}: calc(#{$spacingValue} * var(--spacing-unit, 0.5rem))
 
